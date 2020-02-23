@@ -4,24 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;     //for read & write .txt files
+using System.Runtime.InteropServices; //for wondow size and maximize lock (https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.dllimportattribute?view=netframework-4.8)
 
 namespace pluto
 {
     class Program
     {
-       static void Main(string[] args)
+        // window size and maximize lock 
+        
+
+        static void Main(string[] args)
         {
             string CurrentRoom;
             string CurrentInventory;
 
-            Console.SetWindowSize(140, 45);         
-            Console.Title = "pluto";        //use console title as status bar (room name, inventory status, health,...)  
-            Console.WriteLine(" OBRAZOK");
-            
-            Music p = new Music();
-            p.PlayIntro();
-
-                Console.ReadLine();
+            Settings.SetGame();
+            Console.ReadKey();
 
             // save game 
             SaveGame n = new SaveGame();
@@ -35,7 +33,7 @@ namespace pluto
             Console.WriteLine(CurrentRoom);
             Console.WriteLine(CurrentInventory);
 
-                Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
