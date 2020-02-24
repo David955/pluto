@@ -51,7 +51,7 @@ namespace pluto
             Music.PlayIntro();
             
             Console.WriteLine("                                                            PRESS ENTER TO START");
-            Console.ReadKey();
+            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
             Console.Clear();
                        
             Console.WriteLine("\n\n\n");
