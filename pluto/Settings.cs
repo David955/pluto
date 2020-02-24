@@ -38,18 +38,35 @@ namespace pluto
 
             Console.SetWindowSize(140, 45);
             Console.Title = "Gigamite";        //use console title as status bar (room name, inventory status, health,...)
-            Console.WriteLine("");
-            Console.WriteLine(@"                                         _____________                          __________      ");
-            Console.WriteLine(@"                                        __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                        _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                        / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                        \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                     /____/                                    \n\n");
-            Console.WriteLine(@"                                                             version 0.1");
 
+          //Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine(@"                                          _____________                          __________      ");
+            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
+            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
+            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
+            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
+            Console.WriteLine("                                                       /____/                                    \n\n\n");
 
-            Music p = new Music();
-            p.PlayIntro();
+            Music.PlayIntro();
+            
+            Console.WriteLine("                                                            PRESS ENTER TO START");
+            Console.ReadKey();
+            Console.Clear();
+                       
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine(@"                                          _____________                          __________      ");
+            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
+            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
+            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
+            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
+            Console.WriteLine("                                                       /____/                                    \n");
+            Console.WriteLine("                                                               version 0.1\n\n");
+
+            Console.WriteLine("                                                              1. NEW GAME");
+            Console.WriteLine("                                                              2. LOAD GAME");
+            Console.WriteLine("                                                              3. SETTINGS");
+            Console.WriteLine("                                                              4. QUIT");
         }
     }
 }
