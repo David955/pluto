@@ -48,7 +48,7 @@ namespace pluto
             Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
             Console.WriteLine("                                                       /____/                                    \n\n\n");
 
-            Music.PlayIntro();
+            //Music.PlayIntro();
             
             Console.WriteLine("                                                            PRESS ENTER TO START");
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }

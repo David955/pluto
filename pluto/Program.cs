@@ -21,15 +21,19 @@ namespace pluto
             SaveGame n = new SaveGame();
             n.SaveToText();
 
+            Console.ReadKey();
+
             // load game
             LoadGame m = new LoadGame();
+            LoadGame.InitiateLoading();
             CurrentRoom = m.LoadRoom();
             CurrentInventory = m.LoadInventory();
+            LoadGame.FinishLoading();
 
-            Console.WriteLine(CurrentRoom);
-            Console.WriteLine(CurrentInventory);
+            //Console.WriteLine(CurrentRoom);
+            //Console.WriteLine(CurrentInventory);
 
-            Console.ReadKey();
+            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
         }
     }
 }
