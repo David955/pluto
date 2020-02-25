@@ -13,7 +13,7 @@ namespace pluto
         StreamWriter n = new StreamWriter("../../../../save_file.txt", false);
         public void SaveToText()
         {
-            //save animation
+            // save animation
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("saving...");
             var WaitMan = new WaitMan(10, 43);           
@@ -21,7 +21,7 @@ namespace pluto
             WaitMan.Start();
             Thread.Sleep(2500);
             
-            //write to file
+            // write to file
             n.WriteLine("LastRoom = 7");
             n.WriteLine("LastInventory = 1");
             n.Flush();
@@ -31,6 +31,13 @@ namespace pluto
 
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("GAME SAVED");
+
+            // don't play sound after saving, when player turned it off in settings menu
+            Settings s = new Settings();
+            if (s.Sounds == true)
+            {
+                Music.SystemSound();
+            }
         }
     }
 }

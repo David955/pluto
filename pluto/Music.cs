@@ -9,9 +9,9 @@ namespace pluto
 {
     class Music
     {
-        public static void PlayIntro()
+        public static void Intro()
         {
-            //iron maiden: caught somewhere in time, 2nd verse
+            // iron maiden: caught somewhere in time, 2nd verse
             Thread.Sleep(450);
             Console.Beep(587, 472);
             Console.Beep(523, 472);
@@ -38,6 +38,23 @@ namespace pluto
             Console.Beep(493, 400);
             Thread.Sleep(150);
             Console.Beep(523, 400);
+        }
+
+        public static void SystemSound()
+        {
+            Console.Beep(700,150);
+        }
+
+        public static void YesSound()
+        {
+            Console.Beep(500, 200);
+            Console.Beep(700, 700);
+        }
+
+        public static void NoSound()
+        {
+            Console.Beep(300,400);
+            Console.Beep(200,800);
         }
     }
 }

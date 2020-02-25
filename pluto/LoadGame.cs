@@ -14,7 +14,7 @@ namespace pluto
 
         public static void InitiateLoading()
         {
-            //loading animation
+            // loading animation
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("Loading...");
             var WaitMan = new WaitMan(11, 43);
@@ -26,7 +26,7 @@ namespace pluto
 
         public string LoadRoom()
         {
-            //read save data from .txt file (https://stackoverflow.com/questions/6768151/get-values-from-textfile-with-c-sharp)
+            // read save data from .txt file (https://stackoverflow.com/questions/6768151/get-values-from-textfile-with-c-sharp)
             var save_data = File
             .ReadAllLines("../../../../save_file.txt")
             .Select(x => x.Split('='))
@@ -50,9 +50,16 @@ namespace pluto
 
         public static void FinishLoading()
         {
-            //after last loading operation, press enter to start loaded game
+            // after last loading operation, press enter to start loaded game
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("GAME LOADED - PRESS ENTER TO CONTINUE");
+
+            // don't play sound after loading, when player turned it off in settings menu
+            Settings s = new Settings();
+            if (s.Sounds == true)
+            {
+                Music.SystemSound();
+            }
         }
     }
 }

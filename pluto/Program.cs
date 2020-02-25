@@ -11,10 +11,13 @@ namespace pluto
     {
         static void Main(string[] args)
         {
+            // these two strings will be part of player class
             string CurrentRoom;
             string CurrentInventory;
 
-            Settings.SetGame();
+            Settings s = new Settings();
+            s.SetGame();
+            //SaveToTemp.Save();
             Console.ReadKey();
 
             // save game 
@@ -30,10 +33,14 @@ namespace pluto
             CurrentInventory = m.LoadInventory();
             LoadGame.FinishLoading();
 
+            // show if saved data is loaded corectly
             //Console.WriteLine(CurrentRoom);
             //Console.WriteLine(CurrentInventory);
 
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+            
+            // delete txt file after closing game
+            // File.Delete("../../../../temp.txt");
         }
     }
 }

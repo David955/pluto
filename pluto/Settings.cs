@@ -10,6 +10,10 @@ namespace pluto
 
     class Settings
     {
+        // sound settings
+        public bool IntroSong = false;
+        public bool Sounds = true;
+
         private const int MF_BYCOMMAND = 0x00000000;
         public const int SC_CLOSE = 0xF060;
         public const int SC_MINIMIZE = 0xF020;
@@ -25,7 +29,7 @@ namespace pluto
         [DllImport("kernel32.dll", ExactSpelling = true)]
         private static extern IntPtr GetConsoleWindow();
 
-        public static void SetGame()
+        public void SetGame()
         {
             IntPtr handle = GetConsoleWindow();
             IntPtr sysMenu = GetSystemMenu(handle, false);
@@ -37,9 +41,10 @@ namespace pluto
             }
 
             Console.SetWindowSize(140, 45);
-            Console.Title = "Gigamite";        //use console title as status bar (room name, inventory status, health,...)
+            Console.Title = "Gigamite";
+            // hides cursor !!!remember to make it visible in gameplay!!!
+            Console.CursorVisible = false;
 
-          //Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("\n\n\n");
             Console.WriteLine(@"                                          _____________                          __________      ");
             Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
@@ -48,8 +53,12 @@ namespace pluto
             Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
             Console.WriteLine("                                                       /____/                                    \n\n\n");
 
-            //Music.PlayIntro();
-            
+            // don't play intro song when player turned it off in settings menu
+            if (IntroSong == true)
+            {
+                Music.Intro();
+            }
+
             Console.WriteLine("                                                            PRESS ENTER TO START");
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
             Console.Clear();
