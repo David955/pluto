@@ -48,14 +48,7 @@ namespace pluto
             Console.Title = "Gigamite";
             // !!!remember to make it visible in gameplay!!!
             Console.CursorVisible = false;
-
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine(@"                                          _____________                          __________      ");
-            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                       /____/                                    \n\n\n");
+            Logo();
 
             // don't play intro song when player turned it off in settings menu
             if (IntroSong == true)
@@ -65,6 +58,7 @@ namespace pluto
 
             Console.WriteLine("                                                            PRESS ENTER TO START");
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+            Music.YesSound();
         }
 
         public void SettingsScreen()
@@ -72,6 +66,17 @@ namespace pluto
             Console.Clear();
             Console.WriteLine("FUTURE SETTINGS SCREEN");
             Console.ReadLine();
+        }
+
+        public static void Logo()
+        {
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine(@"                                          _____________                          __________      ");
+            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
+            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
+            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
+            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
+            Console.WriteLine("                                                       /____/                                    \n\n\n");
         }
     }
 }

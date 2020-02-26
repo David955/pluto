@@ -17,7 +17,7 @@ namespace pluto
             // loading animation
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("Loading...");
-            var WaitMan = new WaitMan(11, 43);
+            var WaitMan = new WaitMan(10, 43);
 
             WaitMan.Start();
             Thread.Sleep(2500);
@@ -52,7 +52,7 @@ namespace pluto
         {
             // after last loading operation, press enter to start loaded game
             Console.SetCursorPosition(0, 43);
-            Console.WriteLine("GAME LOADED - PRESS ENTER TO CONTINUE");
+            Console.WriteLine("GAME LOADED    PRESS ENTER TO CONTINUE");
 
             // don't play sound after loading, when player turned it off in settings menu
             Settings s = new Settings();

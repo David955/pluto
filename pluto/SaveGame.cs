@@ -16,7 +16,7 @@ namespace pluto
             // save animation
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("saving...");
-            var WaitMan = new WaitMan(10, 43);           
+            var WaitMan = new WaitMan(9, 43);           
             
             WaitMan.Start();
             Thread.Sleep(2500);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace pluto
@@ -11,15 +12,8 @@ namespace pluto
         public void NewGameMenu()
         {
             Console.Clear();
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine(@"                                          _____________                          __________      ");
-            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                       /____/                                    \n");
+            Settings.Logo();
             Console.WriteLine("                                                               version 0.1\n\n");
-
             Console.WriteLine("                                                               > NEW GAME");
             Console.WriteLine("                                                                 LOAD GAME");
             Console.WriteLine("                                                                 SETTINGS");
@@ -31,10 +25,19 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                        Console.SetCursorPosition(0, 43);
+                        Console.WriteLine("Starting...");
+                        var WaitMan = new WaitMan(11, 43);
+
+                        WaitMan.Start();
+                        Thread.Sleep(1500);
+                        WaitMan.Stop();
+
                         Game g = new Game();
                         g.intro();
                         return;
                     case ConsoleKey.DownArrow:
+                        Music.MenuSound();
                         LoadGameMenu();
                         return;
                 }
@@ -44,15 +47,8 @@ namespace pluto
         public void LoadGameMenu()
         {
             Console.Clear();
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine(@"                                          _____________                          __________      ");
-            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                       /____/                                    \n");
+            Settings.Logo();
             Console.WriteLine("                                                               version 0.1\n\n");
-
             Console.WriteLine("                                                                 NEW GAME");
             Console.WriteLine("                                                               > LOAD GAME");
             Console.WriteLine("                                                                 SETTINGS");
@@ -70,9 +66,11 @@ namespace pluto
                         while(Console.ReadKey().Key != ConsoleKey.Enter) { }
                         return;
                     case ConsoleKey.UpArrow:
+                        Music.MenuSound();
                         NewGameMenu();
                         return;
                     case ConsoleKey.DownArrow:
+                        Music.MenuSound();
                         SettingsMenu();
                         return;
                 }
@@ -82,15 +80,8 @@ namespace pluto
         public void SettingsMenu()
         {
             Console.Clear();
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine(@"                                          _____________                          __________      ");
-            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                       /____/                                    \n");
+            Settings.Logo();
             Console.WriteLine("                                                               version 0.1\n\n");
-
             Console.WriteLine("                                                                 NEW GAME");
             Console.WriteLine("                                                                 LOAD GAME");
             Console.WriteLine("                                                               > SETTINGS");
@@ -106,9 +97,11 @@ namespace pluto
                         s.SettingsScreen();
                         return;
                     case ConsoleKey.UpArrow:
+                        Music.MenuSound();
                         LoadGameMenu();
                         return;
                     case ConsoleKey.DownArrow:
+                        Music.MenuSound();
                         QuitMenu();
                         return;
                 }
@@ -118,15 +111,8 @@ namespace pluto
         public void QuitMenu()
         {
             Console.Clear();
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine(@"                                          _____________                          __________      ");
-            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                       /____/                                    \n");
+            Settings.Logo();
             Console.WriteLine("                                                               version 0.1\n\n");
-
             Console.WriteLine("                                                                 NEW GAME");
             Console.WriteLine("                                                                 LOAD GAME");
             Console.WriteLine("                                                                 SETTINGS");
@@ -138,9 +124,11 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                        Music.NoSound();
                         QuitGame.QuitFromMenu();
                         return;
                     case ConsoleKey.UpArrow:
+                        Music.MenuSound();
                         SettingsMenu();
                         return;
                 }

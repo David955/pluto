@@ -45,16 +45,21 @@ namespace pluto
             Console.Beep(700,150);
         }
 
+        public static void MenuSound()
+        {
+            Console.Beep(200, 80);
+        }
+
         public static void YesSound()
         {
-            Console.Beep(500, 200);
-            Console.Beep(700, 700);
+            Console.Beep(500, 90);
+            Console.Beep(700, 250);
         }
 
         public static void NoSound()
         {
-            Console.Beep(300,400);
-            Console.Beep(200,800);
+            Console.Beep(300,300);
+            Console.Beep(200,500);
         }
     }
 }
