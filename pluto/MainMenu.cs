@@ -60,10 +60,21 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
-                        LoadGame m = new LoadGame();
-                        LoadGame.InitiateLoading();
-                        LoadGame.FinishLoading();
-                        while(Console.ReadKey().Key != ConsoleKey.Enter) { }
+                        
+                        PreLoadGame p = new PreLoadGame();
+                        if (p.CheckSaveFile() == true)
+                        {
+                            LoadGame m = new LoadGame();
+                            LoadGame.InitiateLoading();
+                            LoadGame.FinishLoading();
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+                        }
+                        else
+                        {
+                            Music.SystemSound();
+                            Console.ReadKey();
+                            LoadGameMenu();
+                        }
                         return;
                     case ConsoleKey.UpArrow:
                         Music.MenuSound();
