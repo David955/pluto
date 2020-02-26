@@ -15,6 +15,7 @@ namespace pluto
         public static void InitiateLoading()
         {
             // loading animation
+            Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("Loading...");
             var WaitMan = new WaitMan(10, 43);

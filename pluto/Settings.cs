@@ -55,8 +55,13 @@ namespace pluto
             {
                 Music.Intro();
             }
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("                                                            PRESS"); //ENTER TO START");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" ENTER");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write(" TO START");
 
-            Console.WriteLine("                                                            PRESS ENTER TO START");
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
             Music.YesSound();
         }

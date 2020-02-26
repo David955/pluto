@@ -11,10 +11,11 @@ namespace pluto
     {
         public void NewGameMenu()
         {
-            Console.Clear();
-            Settings.Logo();
-            Console.WriteLine("                                                               version 0.1\n\n");
+            Console.SetCursorPosition(0, 13);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("                                                               version 0.1            \n\n");
             Console.WriteLine("                                                               > NEW GAME");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 LOAD GAME");
             Console.WriteLine("                                                                 SETTINGS");
             Console.WriteLine("                                                                 QUIT");
@@ -25,6 +26,8 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                        // plays quick loading animation, then starts GAME
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.SetCursorPosition(0, 43);
                         Console.WriteLine("Starting...");
                         var WaitMan = new WaitMan(11, 43);
@@ -33,8 +36,10 @@ namespace pluto
                         Thread.Sleep(1500);
                         WaitMan.Stop();
 
+                        // core game
                         Game g = new Game();
                         g.intro();
+
                         return;
                     case ConsoleKey.DownArrow:
                         Music.MenuSound();
@@ -46,11 +51,14 @@ namespace pluto
 
         public void LoadGameMenu()
         {
-            Console.Clear();
-            Settings.Logo();
+            Console.SetCursorPosition(0, 13);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               version 0.1\n\n");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 NEW GAME");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               > LOAD GAME");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 SETTINGS");
             Console.WriteLine("                                                                 QUIT");
 
@@ -60,10 +68,11 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
-                        
+                        // PreLoadGame checks if is save file present
                         PreLoadGame p = new PreLoadGame();
                         if (p.CheckSaveFile() == true)
                         {
+                            // if is file present, players position is loaded from file
                             LoadGame m = new LoadGame();
                             LoadGame.InitiateLoading();
                             LoadGame.FinishLoading();
@@ -71,6 +80,7 @@ namespace pluto
                         }
                         else
                         {
+                            // else error message from PreLoadGame is displayed, then return to main menu
                             Music.SystemSound();
                             Console.ReadKey();
                             LoadGameMenu();
@@ -90,12 +100,15 @@ namespace pluto
         
         public void SettingsMenu()
         {
-            Console.Clear();
-            Settings.Logo();
+            Console.SetCursorPosition(0, 13);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               version 0.1\n\n");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 NEW GAME");
             Console.WriteLine("                                                                 LOAD GAME");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               > SETTINGS");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 QUIT");
 
             while (true)
@@ -121,12 +134,14 @@ namespace pluto
 
         public void QuitMenu()
         {
-            Console.Clear();
-            Settings.Logo();
+            Console.SetCursorPosition(0, 13);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               version 0.1\n\n");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 NEW GAME");
             Console.WriteLine("                                                                 LOAD GAME");
             Console.WriteLine("                                                                 SETTINGS");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               > QUIT");
 
             while (true)
