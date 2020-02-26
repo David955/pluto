@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices; //for wondow size and maximize lock (https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.dllimportattribute?view=netframework-4.8)
+using System.Runtime.InteropServices; 
+//for wondow size and maximize lock 
+//(https://social.msdn.microsoft.com/Forums/vstudio/en-US/1aa43c6c-71b9-42d4-aa00-60058a85f0eb/c-console-window-disable-resize?forum=csharpgeneral)
 
 namespace pluto
 {
 
     class Settings
     {
-        // sound settings
+        // sound settings !!!set music on in release version!!!
         public bool IntroSong = false;
         public bool Sounds = true;
 
@@ -38,11 +40,13 @@ namespace pluto
             {
                 DeleteMenu(sysMenu, SC_MAXIMIZE, MF_BYCOMMAND);
                 DeleteMenu(sysMenu, SC_SIZE, MF_BYCOMMAND);
+                // !!!uncoment this in final release to close game by deleting temp file!!!
+                //DeleteMenu(sysMenu, SC_CLOSE, MF_BYCOMMAND;
             }
 
             Console.SetWindowSize(140, 45);
             Console.Title = "Gigamite";
-            // hides cursor !!!remember to make it visible in gameplay!!!
+            // !!!remember to make it visible in gameplay!!!
             Console.CursorVisible = false;
 
             Console.WriteLine("\n\n\n");
@@ -61,21 +65,13 @@ namespace pluto
 
             Console.WriteLine("                                                            PRESS ENTER TO START");
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
-            Console.Clear();
-                       
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine(@"                                          _____________                          __________      ");
-            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                       /____/                                    \n");
-            Console.WriteLine("                                                               version 0.1\n\n");
+        }
 
-            Console.WriteLine("                                                              1. NEW GAME");
-            Console.WriteLine("                                                              2. LOAD GAME");
-            Console.WriteLine("                                                              3. SETTINGS");
-            Console.WriteLine("                                                              4. QUIT");
+        public void SettingsScreen()
+        {
+            Console.Clear();
+            Console.WriteLine("FUTURE SETTINGS SCREEN");
+            Console.ReadLine();
         }
     }
 }

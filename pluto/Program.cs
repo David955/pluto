@@ -12,35 +12,23 @@ namespace pluto
         static void Main(string[] args)
         {
             // these two strings will be part of player class
-            string CurrentRoom;
-            string CurrentInventory;
+            //string CurrentRoom;
+            //string CurrentInventory;
 
             Settings s = new Settings();
             s.SetGame();
             //SaveToTemp.Save();
-            Console.ReadKey();
+            
+            MainMenu m = new MainMenu();
+            m.NewGameMenu();
 
             // save game 
+            /*
             SaveGame n = new SaveGame();
             n.SaveToText();
 
             Console.ReadKey();
-
-            // load game
-            LoadGame m = new LoadGame();
-            LoadGame.InitiateLoading();
-            CurrentRoom = m.LoadRoom();
-            CurrentInventory = m.LoadInventory();
-            LoadGame.FinishLoading();
-
-            // show if saved data is loaded corectly
-            //Console.WriteLine(CurrentRoom);
-            //Console.WriteLine(CurrentInventory);
-
-            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
-            
-            // delete txt file after closing game
-            // File.Delete("../../../../temp.txt");
+            */
         }
     }
 }
