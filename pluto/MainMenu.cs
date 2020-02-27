@@ -13,12 +13,15 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                                               version 0.1            \n\n");
+            // this and ONLY this WriteLine needs 85 characters in order to delete previous "press ENTER to START" 
+            Console.WriteLine("                                                               version 0.1           \n\n"); 
             Console.WriteLine("                                                               > NEW GAME");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 LOAD GAME");
             Console.WriteLine("                                                                 SETTINGS");
             Console.WriteLine("                                                                 QUIT");
+            // sets text to black, so no input in menu is visible
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
@@ -26,6 +29,9 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                        // when loading after previous failed loading, this will clear the bottom error text 
+                        Console.SetCursorPosition(0, 43);
+                        Console.WriteLine("                                                                                                                ");
                         // plays quick loading animation, then starts GAME
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.SetCursorPosition(0, 43);
@@ -45,6 +51,10 @@ namespace pluto
                         Music.MenuSound();
                         LoadGameMenu();
                         return;
+                    case ConsoleKey.UpArrow:
+                        Music.MenuSound();
+                        NewGameMenu();
+                        return;
                 }
             }
         }
@@ -61,6 +71,8 @@ namespace pluto
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 SETTINGS");
             Console.WriteLine("                                                                 QUIT");
+            // sets text to black, so no input in menu is visible
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
@@ -68,6 +80,9 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                        // when loading after previous failed loading, this will clear the bottom error text 
+                        Console.SetCursorPosition(0, 43);
+                        Console.WriteLine("                                                                                                                ");
                         // PreLoadGame checks if is save file present
                         PreLoadGame p = new PreLoadGame();
                         if (p.CheckSaveFile() == true)
@@ -82,7 +97,6 @@ namespace pluto
                         {
                             // else error message from PreLoadGame is displayed, then return to main menu
                             Music.SystemSound();
-                            Console.ReadKey();
                             LoadGameMenu();
                         }
                         return;
@@ -110,6 +124,8 @@ namespace pluto
             Console.WriteLine("                                                               > SETTINGS");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 QUIT");
+            // sets text to black, so no input in menu is visible
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
@@ -143,6 +159,8 @@ namespace pluto
             Console.WriteLine("                                                                 SETTINGS");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               > QUIT");
+            // sets text to black, so no input in menu is visible
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
@@ -156,6 +174,10 @@ namespace pluto
                     case ConsoleKey.UpArrow:
                         Music.MenuSound();
                         SettingsMenu();
+                        return;
+                    case ConsoleKey.DownArrow:
+                        Music.MenuSound();
+                        QuitMenu();
                         return;
                 }
             }

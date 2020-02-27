@@ -53,7 +53,13 @@ namespace pluto
         {
             // after last loading operation, press enter to start loaded game
             Console.SetCursorPosition(0, 43);
-            Console.WriteLine("GAME LOADED    PRESS ENTER TO CONTINUE");
+            Console.Write("GAME LOADED - ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("press"); 
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" ENTER");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" to START");
 
             // don't play sound after loading, when player turned it off in settings menu
             Settings s = new Settings();

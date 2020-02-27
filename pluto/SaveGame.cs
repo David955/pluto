@@ -14,6 +14,7 @@ namespace pluto
         public void SaveToText()
         {
             // save animation
+            Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(0, 43);
             Console.WriteLine("saving...");
             var WaitMan = new WaitMan(9, 43);           

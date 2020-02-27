@@ -21,7 +21,8 @@ namespace pluto
             catch (IOException)
             {
                 // error message
-                // creates loading animation, then informs about missing save file
+                // creates loading animation, then informs about missing save file                
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.SetCursorPosition(0, 43);
                 Console.WriteLine("Loading...");
                 var WaitMan = new WaitMan(10, 43);
@@ -31,10 +32,10 @@ namespace pluto
                 WaitMan.Stop();
 
                 Console.SetCursorPosition(0, 43);
-                Console.WriteLine("LOADING FAILED - SAVE FILE NOT FOUND (make sure that .exe and save_file are in same directory)");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("LOADING FAILED - save file NOT FOUND");
                 return false;
             }
         }
-
     }
 }

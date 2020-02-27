@@ -46,8 +46,9 @@ namespace pluto
 
             Console.SetWindowSize(140, 45);
             Console.Title = "Gigamite";
-            // !!!remember to make it visible in gameplay!!!
+            // hide cursor
             Console.CursorVisible = false;
+            // display logo
             Logo();
 
             // don't play intro song when player turned it off in settings menu
@@ -56,11 +57,13 @@ namespace pluto
                 Music.Intro();
             }
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.Write("                                                            PRESS"); //ENTER TO START");
+            Console.Write("                                                            press");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" ENTER");
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.Write(" TO START");
+            Console.Write(" to START");
+            // sets text to black, so no input in start screen is visible
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
             Music.YesSound();
@@ -69,6 +72,7 @@ namespace pluto
         public void SettingsScreen()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("FUTURE SETTINGS SCREEN");
             Console.ReadLine();
         }
