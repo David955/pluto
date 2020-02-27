@@ -45,7 +45,7 @@ namespace pluto
             }
 
             Console.SetWindowSize(140, 45);
-            Console.Title = "Gigamite";
+            Console.Title = "Pluto";
             // hide cursor
             Console.CursorVisible = false;
             // display logo
@@ -79,13 +79,14 @@ namespace pluto
 
         public static void Logo()
         {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("\n\n\n");
-            Console.WriteLine(@"                                          _____________                          __________      ");
-            Console.WriteLine(@"                                          __  ____/__(_)______ ______ _______ ______(_)_  /_____ ");
-            Console.WriteLine(@"                                          _  / __ __  /__  __ `/  __ `/_  __ `__ \_  /_  __/  _ \");
-            Console.WriteLine(@"                                          / /_/ / _  / _  /_/ // /_/ /_  / / / / /  / / /_ /  __/");
-            Console.WriteLine(@"                                          \____/  /_/  _\__, / \__,_/ /_/ /_/ /_//_/  \__/ \___/ ");
-            Console.WriteLine("                                                       /____/                                    \n\n\n");
+            Console.WriteLine(@"                                                        ____  _    _   _ _____ ___  ");
+            Console.WriteLine(@"                                                       |  _ \| |  | | | |_   _/ _ \ ");
+            Console.WriteLine(@"                                                       | |_) | |  | | | | | || | | |");
+            Console.WriteLine(@"                                                       |  __/| |__| |_| | | || |_| |");
+            Console.WriteLine(@"                                                       |_|   |_____\___/  |_| \___/ ");
+            Console.WriteLine("                                                                           \n\n\n");
         }
     }
 }
