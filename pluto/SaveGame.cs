@@ -34,8 +34,7 @@ namespace pluto
             Console.WriteLine("GAME SAVED");
 
             // don't play sound after saving, when player turned it off in settings menu
-            Settings s = new Settings();
-            if (s.Sounds == true)
+            if (Settings.Sounds == true)
             {
                 Music.SystemSound();
             }

@@ -13,8 +13,9 @@ namespace pluto
     class Settings
     {
         // sound settings !!!set music on in release version!!!
-        public bool IntroSong = false;
-        public bool Sounds = true;
+        public static bool IntroSong = false;
+        public static bool Sounds = true;
+        public static bool Resize = false;
 
         private const int MF_BYCOMMAND = 0x00000000;
         public const int SC_CLOSE = 0xF060;
@@ -39,7 +40,10 @@ namespace pluto
             if (handle != IntPtr.Zero)
             {
                 DeleteMenu(sysMenu, SC_MAXIMIZE, MF_BYCOMMAND);
-                DeleteMenu(sysMenu, SC_SIZE, MF_BYCOMMAND);
+                if (Resize == false)
+                {
+                    DeleteMenu(sysMenu, SC_SIZE, MF_BYCOMMAND);
+                }
                 // !!!uncoment this in final release to close game by deleting temp file!!!
                 //DeleteMenu(sysMenu, SC_CLOSE, MF_BYCOMMAND;
             }
@@ -67,14 +71,88 @@ namespace pluto
 
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
             Music.YesSound();
+
         }
 
-        public void SettingsScreen()
+        public void SettingsScreenSound()
         {
-            Console.Clear();
+            SettingsSound();
+            SettingsIntroSong();
+            SettingsWindowSize();
+            Console.SetCursorPosition(0, 18);
+            Console.WriteLine("                                                                                    ");
+            Console.WriteLine("                                                      > BACK                        ");
+
+            while (true)
+            {
+                var ch = Console.ReadKey(false).Key;
+                switch (ch)
+                {
+                    case ConsoleKey.Enter:
+                        if (Sounds == true)
+                        {
+                            Sounds = false;
+                        }
+                        else
+                        {
+                            Sounds = true;
+                        }
+                        SettingsScreenSound();
+                        return;
+                    case ConsoleKey.DownArrow:
+                        MainMenu m = new MainMenu();
+                        m.SettingsMenu();
+
+                        return;
+                    case ConsoleKey.UpArrow:
+
+                        return;
+                }
+            }
+        }
+
+        public void SettingsSound()
+        {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("FUTURE SETTINGS SCREEN");
-            Console.ReadLine();
+            Console.SetCursorPosition(0, 15);
+            Console.Write("                                                      SOUNDS");
+            if ( Sounds == true )
+            {
+                Console.Write("            > ON     OFF");
+            }
+            else
+            {
+                Console.Write("              ON   > OFF");
+            }
+        }
+
+        public void SettingsIntroSong()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.SetCursorPosition(0, 16);
+            Console.Write("                                                      INTRO SONG");
+            if ( IntroSong == true )
+            {
+                Console.Write("        > ON     OFF");
+            }
+            else
+            {
+                Console.Write("          ON   > OFF");
+            }
+        }
+
+        public void SettingsWindowSize()
+        {
+            Console.SetCursorPosition(0, 17);
+            Console.Write("                                                      RESIZE WINDOW");
+            if (IntroSong == true)
+            {
+                Console.Write("     > ON     OFF");
+            }
+            else
+            {
+                Console.Write("       ON   > OFF");
+            }
         }
 
         public static void Logo()

@@ -1,2 +1,0 @@
-LastRoom = 7
-LastInventory = 1

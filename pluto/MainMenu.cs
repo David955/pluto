@@ -114,16 +114,19 @@ namespace pluto
         
         public void SettingsMenu()
         {
+            // SettingsMenu has additional spaces in WriteLine in order to hide previous SettingsScreen
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                                               version 0.1\n\n");
+            Console.WriteLine("                                                               version 0.1\n");
+            Console.WriteLine("                                                                                                 ");
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("                                                                 NEW GAME");
-            Console.WriteLine("                                                                 LOAD GAME");
+            Console.WriteLine("                                                                 NEW GAME                        ");
+            Console.WriteLine("                                                                 LOAD GAME                       ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                                               > SETTINGS");
+            Console.WriteLine("                                                               > SETTINGS                        ");
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("                                                                 QUIT");
+            Console.WriteLine("                                                                 QUIT                            ");
+            Console.WriteLine("                                                                                                 ");
             // sets text to black, so no input in menu is visible
             Console.ForegroundColor = ConsoleColor.Black;
 

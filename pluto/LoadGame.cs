@@ -63,7 +63,7 @@ namespace pluto
 
             // don't play sound after loading, when player turned it off in settings menu
             Settings s = new Settings();
-            if (s.Sounds == true)
+            if (Settings.Sounds == true)
             {
                 Music.SystemSound();
             }
