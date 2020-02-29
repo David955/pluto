@@ -137,7 +137,7 @@ namespace pluto
                 {
                     case ConsoleKey.Enter:
                         Settings s = new Settings();
-                        s.SettingsScreen();
+                        s.ScreenSound();
                         return;
                     case ConsoleKey.UpArrow:
                         Music.MenuSound();

@@ -74,11 +74,13 @@ namespace pluto
 
         }
 
-        public void SettingsScreenSound()
+        public void ScreenSound()
         {
-            SettingsSound();
-            SettingsIntroSong();
-            SettingsWindowSize();
+            Console.ForegroundColor = ConsoleColor.White;
+                SettingsSound();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+                SettingsIntroSong();
+                SettingsWindowSize();
             Console.SetCursorPosition(0, 18);
             Console.WriteLine("                                                                                    ");
             Console.WriteLine("                                                      > BACK                        ");
@@ -97,15 +99,139 @@ namespace pluto
                         {
                             Sounds = true;
                         }
-                        SettingsScreenSound();
+
+                        Music.MenuSound();
+                        ScreenSound();
                         return;
                     case ConsoleKey.DownArrow:
-                        MainMenu m = new MainMenu();
-                        m.SettingsMenu();
-
+                        Music.MenuSound();
+                        ScreenIntroSong();
                         return;
                     case ConsoleKey.UpArrow:
+                        Music.MenuSound();
+                        ScreenSound();
+                        return;
+                }
+            }
+        }
 
+        public void ScreenIntroSong()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+                SettingsSound();
+            Console.ForegroundColor = ConsoleColor.White;
+                SettingsIntroSong();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+                SettingsWindowSize();
+            Console.SetCursorPosition(0, 18);
+            Console.WriteLine("                                                                                    ");
+            Console.WriteLine("                                                      > BACK                        ");
+
+            while (true)
+            {
+                var ch = Console.ReadKey(false).Key;
+                switch (ch)
+                {
+                    case ConsoleKey.Enter:
+                        if (IntroSong == true)
+                        {
+                            IntroSong = false;
+                        }
+                        else
+                        {
+                            IntroSong = true;
+                        }
+
+                        Music.MenuSound();
+                        ScreenIntroSong();
+                        return;
+                    case ConsoleKey.DownArrow:
+                        Music.MenuSound();
+                        ScreenResizeWindow();
+                        return;
+                    case ConsoleKey.UpArrow:
+                        Music.MenuSound();
+                        ScreenSound();
+                        return;
+                }
+            }
+        }
+
+        public void ScreenResizeWindow()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+                SettingsSound();
+                SettingsIntroSong();
+            Console.ForegroundColor = ConsoleColor.White;
+                SettingsWindowSize();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.SetCursorPosition(0, 18);
+            Console.WriteLine("                                                                                    ");
+            Console.WriteLine("                                                      > BACK                        ");
+
+            while (true)
+            {
+                var ch = Console.ReadKey(false).Key;
+                switch (ch)
+                {
+                    case ConsoleKey.Enter:
+                        if (Resize == true)
+                        {
+                            Resize = false;
+                        }
+                        else
+                        {
+                            Resize = true;
+                        }
+
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.SetCursorPosition(0, 43);
+                        Console.WriteLine("Restart needed");
+
+                        Music.SystemSound();
+
+                        ScreenResizeWindow();
+                        return;
+                    case ConsoleKey.DownArrow:
+                        Music.MenuSound();
+                        ScreenQuit();
+                        return;
+                    case ConsoleKey.UpArrow:
+                        Music.MenuSound();
+                        ScreenIntroSong();
+                        return;
+                }
+            }
+        }
+
+        public void ScreenQuit()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+                SettingsSound();
+                SettingsIntroSong();
+                SettingsWindowSize();
+            Console.SetCursorPosition(0, 18);
+            Console.WriteLine("                                                                                    ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("                                                      > BACK                        ");
+
+            while (true)
+            {
+                var ch = Console.ReadKey(false).Key;
+                switch (ch)
+                {
+                    case ConsoleKey.Enter:
+                        Music.MenuSound();
+                        MainMenu m = new MainMenu();
+                        m.SettingsMenu();
+                        return;
+                    case ConsoleKey.DownArrow:
+                        Music.MenuSound();
+                        ScreenQuit();
+                        return;
+                    case ConsoleKey.UpArrow:
+                        Music.MenuSound();
+                        ScreenResizeWindow();
                         return;
                 }
             }
@@ -113,7 +239,6 @@ namespace pluto
 
         public void SettingsSound()
         {
-            Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(0, 15);
             Console.Write("                                                      SOUNDS");
             if ( Sounds == true )
@@ -128,7 +253,6 @@ namespace pluto
 
         public void SettingsIntroSong()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.SetCursorPosition(0, 16);
             Console.Write("                                                      INTRO SONG");
             if ( IntroSong == true )
@@ -145,7 +269,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 17);
             Console.Write("                                                      RESIZE WINDOW");
-            if (IntroSong == true)
+            if (Resize == true)
             {
                 Console.Write("     > ON     OFF");
             }
