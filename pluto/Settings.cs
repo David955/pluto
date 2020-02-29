@@ -83,7 +83,9 @@ namespace pluto
                 SettingsWindowSize();
             Console.SetCursorPosition(0, 18);
             Console.WriteLine("                                                                                    ");
-            Console.WriteLine("                                                      > BACK                        ");
+            Console.WriteLine("                                                        BACK                        ");
+            // sets text to black, so no input in menu is visible
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
@@ -125,7 +127,8 @@ namespace pluto
                 SettingsWindowSize();
             Console.SetCursorPosition(0, 18);
             Console.WriteLine("                                                                                    ");
-            Console.WriteLine("                                                      > BACK                        ");
+            Console.WriteLine("                                                        BACK                        ");
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
@@ -167,7 +170,8 @@ namespace pluto
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.SetCursorPosition(0, 18);
             Console.WriteLine("                                                                                    ");
-            Console.WriteLine("                                                      > BACK                        ");
+            Console.WriteLine("                                                        BACK                        ");
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
@@ -214,6 +218,7 @@ namespace pluto
             Console.WriteLine("                                                                                    ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                      > BACK                        ");
+            Console.ForegroundColor = ConsoleColor.Black;
 
             while (true)
             {
