@@ -37,6 +37,7 @@ namespace pluto
             m.Close();
             return save_data["LastRoom"];
         }
+
         public string LoadInventory()
         {
             var save_data = File
@@ -51,6 +52,10 @@ namespace pluto
 
         public static void FinishLoading()
         {
+            // sends data from file to variables in Player class
+            LoadGame m = new LoadGame();
+            Player.CurrentRoom = m.LoadRoom();
+            Player.CurrentInventory = m.LoadInventory();
             // after last loading operation, press enter to start loaded game
             Console.SetCursorPosition(0, 43);
             Console.Write("GAME LOADED - ");
@@ -61,12 +66,7 @@ namespace pluto
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" to START");
 
-            // don't play sound after loading, when player turned it off in settings menu
-            Settings s = new Settings();
-            if (Settings.Sounds == true)
-            {
-                Music.SystemSound();
-            }
+            Music.SystemSound();
         }
     }
 }

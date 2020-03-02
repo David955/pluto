@@ -12,9 +12,8 @@ namespace pluto
 
     class Settings
     {
-        // sound settings !!!set music on in release version!!!
-        public static bool IntroSong = false;
         public static bool Sounds = true;
+        public static bool IntroSong = false;
         public static bool Resize = false;
 
         private const int MF_BYCOMMAND = 0x00000000;
@@ -54,12 +53,8 @@ namespace pluto
             Console.CursorVisible = false;
             // display logo
             Logo();
-
-            // don't play intro song when player turned it off in settings menu
-            if (IntroSong == true)
-            {
-                Music.Intro();
-            }
+            Music.Intro();
+            
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("                                                            press");
             Console.ForegroundColor = ConsoleColor.White;
@@ -81,11 +76,7 @@ namespace pluto
             Console.ForegroundColor = ConsoleColor.DarkGray;
                 SettingsIntroSong();
                 SettingsWindowSize();
-            Console.SetCursorPosition(0, 18);
-            Console.WriteLine("                                                                                    ");
-            Console.WriteLine("                                                        BACK                        ");
-            // sets text to black, so no input in menu is visible
-            Console.ForegroundColor = ConsoleColor.Black;
+                RestOfScreen();
 
             while (true)
             {
@@ -125,10 +116,7 @@ namespace pluto
                 SettingsIntroSong();
             Console.ForegroundColor = ConsoleColor.DarkGray;
                 SettingsWindowSize();
-            Console.SetCursorPosition(0, 18);
-            Console.WriteLine("                                                                                    ");
-            Console.WriteLine("                                                        BACK                        ");
-            Console.ForegroundColor = ConsoleColor.Black;
+                RestOfScreen();
 
             while (true)
             {
@@ -167,11 +155,7 @@ namespace pluto
                 SettingsIntroSong();
             Console.ForegroundColor = ConsoleColor.White;
                 SettingsWindowSize();
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.SetCursorPosition(0, 18);
-            Console.WriteLine("                                                                                    ");
-            Console.WriteLine("                                                        BACK                        ");
-            Console.ForegroundColor = ConsoleColor.Black;
+                RestOfScreen();
 
             while (true)
             {
@@ -242,7 +226,16 @@ namespace pluto
             }
         }
 
-        public void SettingsSound()
+        public static void RestOfScreen()
+        {
+            Console.SetCursorPosition(0, 18);
+            Console.WriteLine("                                                                                    ");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("                                                      > BACK                        ");
+            Console.ForegroundColor = ConsoleColor.Black;
+        }
+
+        public static void SettingsSound()
         {
             Console.SetCursorPosition(0, 15);
             Console.Write("                                                      SOUNDS");
@@ -256,7 +249,7 @@ namespace pluto
             }
         }
 
-        public void SettingsIntroSong()
+        public static void SettingsIntroSong()
         {
             Console.SetCursorPosition(0, 16);
             Console.Write("                                                      INTRO SONG");
@@ -270,7 +263,7 @@ namespace pluto
             }
         }
 
-        public void SettingsWindowSize()
+        public static void SettingsWindowSize()
         {
             Console.SetCursorPosition(0, 17);
             Console.Write("                                                      RESIZE WINDOW");

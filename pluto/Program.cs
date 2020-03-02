@@ -11,10 +11,6 @@ namespace pluto
     {
         static void Main(string[] args)
         {
-            // these two strings will be part of player class
-            //string CurrentRoom;
-            //string CurrentInventory;
-
             Settings s = new Settings();
             s.SetGame();
             //SaveToTemp.Save();

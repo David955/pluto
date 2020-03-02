@@ -69,6 +69,7 @@
     <Compile Include="LoadGame.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Music.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="PreLoadGame.cs" />
     <Compile Include="QuitGame.cs" />
     <Compile Include="SaveGame.cs" />
