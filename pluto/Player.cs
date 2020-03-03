@@ -14,6 +14,7 @@ namespace pluto
         public static string Text;              // all previously generated text
         public static int health = 100;         // 
         public static int armor = 0;            // 
+        public static int attack = 10;          // default unarmed attack
         public static int experience = 0;       // 
 
     }

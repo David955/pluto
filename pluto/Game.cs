@@ -8,7 +8,7 @@ namespace pluto
 {
     class Game
     {
-        public void intro()
+        public static void intro()
         {
             // in any case, set text color to white
             Console.ForegroundColor = ConsoleColor.White;

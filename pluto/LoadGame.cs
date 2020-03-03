@@ -12,6 +12,12 @@ namespace pluto
     {
         StreamReader m = new StreamReader("../../../../save_file.txt");
 
+        public static void LoadingSequence()
+        {
+            InitiateLoading();
+            FinishLoading();
+        }
+
         public static void InitiateLoading()
         {
             // loading animation
@@ -65,8 +71,11 @@ namespace pluto
             Console.Write(" ENTER");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" to START");
+            // show loaded data
+            //Console.Write(Player.CurrentInventory + Player.CurrentRoom);
 
             Music.SystemSound();
+            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
         }
     }
 }

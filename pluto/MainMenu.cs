@@ -42,9 +42,8 @@ namespace pluto
                         Thread.Sleep(1500);
                         WaitMan.Stop();
 
-                        // core game
-                        Game g = new Game();
-                        g.intro();
+                            // core game
+                            Game.intro();
 
                         return;
                     case ConsoleKey.DownArrow:
@@ -54,6 +53,10 @@ namespace pluto
                     case ConsoleKey.UpArrow:
                         Music.MenuSound();
                         NewGameMenu();
+                        return;
+                    case ConsoleKey.Escape:
+                        Music.NoSound();
+                        QuitGame.QuitFromMenu();
                         return;
                 }
             }
@@ -80,7 +83,7 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
-                        // when loading after previous failed loading, this will clear the bottom error text 
+                        // this will clear the bottom error text when loading after previous failed loading
                         Console.SetCursorPosition(0, 43);
                         Console.WriteLine("                                                                                                                ");
                         // PreLoadGame checks if is save file present
@@ -88,10 +91,7 @@ namespace pluto
                         if (p.CheckSaveFile() == true)
                         {
                             // if is file present, players position is loaded from file
-                            LoadGame m = new LoadGame();
-                            LoadGame.InitiateLoading();
-                            LoadGame.FinishLoading();
-                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+                            LoadGame.LoadingSequence();
                         }
                         else
                         {
@@ -107,6 +107,10 @@ namespace pluto
                     case ConsoleKey.DownArrow:
                         Music.MenuSound();
                         SettingsMenu();
+                        return;
+                    case ConsoleKey.Escape:
+                        Music.NoSound();
+                        QuitGame.QuitFromMenu();
                         return;
                 }
             }
@@ -147,6 +151,10 @@ namespace pluto
                         Music.MenuSound();
                         QuitMenu();
                         return;
+                    case ConsoleKey.Escape:
+                        Music.NoSound();
+                        QuitGame.QuitFromMenu();
+                        return;
                 }
             }
         }
@@ -181,6 +189,10 @@ namespace pluto
                     case ConsoleKey.DownArrow:
                         Music.MenuSound();
                         QuitMenu();
+                        return;
+                    case ConsoleKey.Escape:
+                        Music.NoSound();
+                        QuitGame.QuitFromMenu();
                         return;
                 }
             }

@@ -84,6 +84,8 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                    case ConsoleKey.RightArrow:
+                    case ConsoleKey.LeftArrow:
                         if (Sounds == true)
                         {
                             Sounds = false;
@@ -124,6 +126,8 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                    case ConsoleKey.RightArrow:
+                    case ConsoleKey.LeftArrow:
                         if (IntroSong == true)
                         {
                             IntroSong = false;
@@ -163,6 +167,8 @@ namespace pluto
                 switch (ch)
                 {
                     case ConsoleKey.Enter:
+                    case ConsoleKey.RightArrow:
+                    case ConsoleKey.LeftArrow:
                         if (Resize == true)
                         {
                             Resize = false;
