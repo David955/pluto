@@ -81,6 +81,7 @@ namespace pluto
                     Music.MenuSound();
                     PressStart();
                     return;
+            }
             Music.YesSound();
         }
 
