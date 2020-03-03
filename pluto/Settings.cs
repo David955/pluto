@@ -63,10 +63,25 @@ namespace pluto
             Console.Write(" to START");
             // sets text to black, so no input in start screen is visible
             Console.ForegroundColor = ConsoleColor.Black;
+            PressStart();
+        }
 
-            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+        public static void PressStart()
+        {
+            var ch = Console.ReadKey(false).Key;
+            switch (ch)
+            {
+                case ConsoleKey.Enter:
+                    break;
+                case ConsoleKey.Escape:
+                    Music.NoSound();
+                    QuitGame.QuitFromMenu();
+                    return;
+                default:
+                    Music.MenuSound();
+                    PressStart();
+                    return;
             Music.YesSound();
-
         }
 
         public void ScreenSound()
