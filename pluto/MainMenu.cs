@@ -43,7 +43,7 @@ namespace pluto
                         WaitMan.Stop();
 
                         Game.ClearSpace();
-                        Game.intro();
+                        Game.Intro();
                         return;
                     case ConsoleKey.DownArrow:
                         Music.MenuSound();

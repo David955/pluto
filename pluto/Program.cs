@@ -13,7 +13,7 @@ namespace pluto
         {
             // loads settings, opens title screen
             Settings.SetGame();
-            
+
             // opens main menu
             MainMenu.NewGameMenu();
 

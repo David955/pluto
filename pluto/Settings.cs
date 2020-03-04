@@ -12,9 +12,9 @@ namespace pluto
 
     class Settings
     {
-        public static bool Sounds = true;
-        public static bool IntroSong = false;
-        public static bool Resize = false;
+        public static bool sounds = true;
+        public static bool introSong = false;
+        public static bool resize = false;
 
         private const int MF_BYCOMMAND = 0x00000000;
         public const int SC_CLOSE = 0xF060;
@@ -39,7 +39,7 @@ namespace pluto
             if (handle != IntPtr.Zero)
             {
                 DeleteMenu(sysMenu, SC_MAXIMIZE, MF_BYCOMMAND);
-                if (Resize == false)
+                if (resize == false)
                 {
                     DeleteMenu(sysMenu, SC_SIZE, MF_BYCOMMAND);
                 }
@@ -102,13 +102,13 @@ namespace pluto
                     case ConsoleKey.Enter:
                     case ConsoleKey.RightArrow:
                     case ConsoleKey.LeftArrow:
-                        if (Sounds == true)
+                        if (sounds == true)
                         {
-                            Sounds = false;
+                            sounds = false;
                         }
                         else
                         {
-                            Sounds = true;
+                            sounds = true;
                         }
 
                         Music.MenuSound();
@@ -144,13 +144,13 @@ namespace pluto
                     case ConsoleKey.Enter:
                     case ConsoleKey.RightArrow:
                     case ConsoleKey.LeftArrow:
-                        if (IntroSong == true)
+                        if (introSong == true)
                         {
-                            IntroSong = false;
+                            introSong = false;
                         }
                         else
                         {
-                            IntroSong = true;
+                            introSong = true;
                         }
 
                         Music.MenuSound();
@@ -185,13 +185,13 @@ namespace pluto
                     case ConsoleKey.Enter:
                     case ConsoleKey.RightArrow:
                     case ConsoleKey.LeftArrow:
-                        if (Resize == true)
+                        if (resize == true)
                         {
-                            Resize = false;
+                            resize = false;
                         }
                         else
                         {
-                            Resize = true;
+                            resize = true;
                         }
 
                         Console.ForegroundColor = ConsoleColor.White;
@@ -260,7 +260,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 15);
             Console.Write("                                                      SOUNDS");
-            if ( Sounds == true )
+            if ( sounds == true )
             {
                 Console.Write("            > ON     OFF");
             }
@@ -274,7 +274,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 16);
             Console.Write("                                                      INTRO SONG");
-            if ( IntroSong == true )
+            if ( introSong == true )
             {
                 Console.Write("        > ON     OFF");
             }
@@ -288,7 +288,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 17);
             Console.Write("                                                      RESIZE WINDOW");
-            if (Resize == true)
+            if (resize == true)
             {
                 Console.Write("     > ON     OFF");
             }

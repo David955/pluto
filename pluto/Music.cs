@@ -12,7 +12,7 @@ namespace pluto
         public static void Intro()
         {
             // iron maiden: caught somewhere in time, 2nd verse
-            if (Settings.IntroSong == true)
+            if (Settings.introSong == true)
             {
                 Thread.Sleep(450);
                 Console.Beep(587, 472);
@@ -45,7 +45,7 @@ namespace pluto
 
         public static void SystemSound()
         {
-            if (Settings.Sounds == true)
+            if (Settings.sounds == true)
             {
                 Console.Beep(700, 150);
             }
@@ -53,7 +53,7 @@ namespace pluto
 
         public static void MenuSound()
         {
-            if (Settings.Sounds == true)
+            if (Settings.sounds == true)
             {
                 Console.Beep(200, 80);
             }
@@ -61,7 +61,7 @@ namespace pluto
 
         public static void YesSound()
         {
-            if (Settings.Sounds == true)
+            if (Settings.sounds == true)
             {
                 Console.Beep(500, 90);
                 Console.Beep(700, 250);
@@ -70,7 +70,7 @@ namespace pluto
 
         public static void NoSound()
         {
-            if (Settings.Sounds == true)
+            if (Settings.sounds == true)
             {
                 Console.Beep(300, 300);
                 Console.Beep(200, 500);

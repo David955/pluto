@@ -60,8 +60,9 @@ namespace pluto
         {
             // sends data from file to variables in Player class
             LoadGame m = new LoadGame();
-            Player.CurrentRoom = m.LoadRoom();
-            Player.CurrentInventory = m.LoadInventory();
+            Player p = new Player();
+            p.currentRoom = m.LoadRoom();
+            p.currentInventory = m.LoadInventory();
             // after last loading operation, press enter to start loaded game
             Console.SetCursorPosition(0, 43);
             Console.Write("GAME LOADED - ");
@@ -72,7 +73,7 @@ namespace pluto
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" to START");
             // show loaded data
-            //Console.Write(Player.CurrentInventory + Player.CurrentRoom);
+            //Console.Write(p.CurrentInventory + p.CurrentRoom);
 
             Music.SystemSound();
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }

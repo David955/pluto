@@ -65,13 +65,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enemies.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="LoadGame.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PreLoadGame.cs" />
     <Compile Include="QuitGame.cs" />
+    <Compile Include="Room.cs" />
     <Compile Include="SaveGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
