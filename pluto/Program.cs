@@ -11,20 +11,31 @@ namespace pluto
     {
         static void Main(string[] args)
         {
-            Settings s = new Settings();
-            s.SetGame();
-            //SaveToTemp.Save();
+            // loads settings, opens title screen
+            Settings.SetGame();
             
-            MainMenu m = new MainMenu();
-            m.NewGameMenu();
+            // opens main menu
+            MainMenu.NewGameMenu();
 
-            // save game 
-            /*
-            SaveGame n = new SaveGame();
-            n.SaveToText();
+            Game g = new Game();
+            g.Play();
 
-            Console.ReadKey();
-            */
         }
     }
 }
+
+/*  UNUSED FUNCTIONS 
+
+
+// save game 
+SaveGame n = new SaveGame();
+n.SaveToText();
+Console.ReadKey();
+
+
+// save temp
+SaveToTemp.Save();
+Console.ReadKey();
+
+
+*/

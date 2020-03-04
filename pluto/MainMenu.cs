@@ -9,7 +9,7 @@ namespace pluto
 {
     class MainMenu
     {
-        public void NewGameMenu()
+        public static void NewGameMenu()
         {
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
@@ -42,9 +42,8 @@ namespace pluto
                         Thread.Sleep(1500);
                         WaitMan.Stop();
 
-                            // core game
-                            Game.intro();
-
+                        Game.ClearSpace();
+                        Game.intro();
                         return;
                     case ConsoleKey.DownArrow:
                         Music.MenuSound();
@@ -62,7 +61,7 @@ namespace pluto
             }
         }
 
-        public void LoadGameMenu()
+        public static void LoadGameMenu()
         {
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
@@ -99,6 +98,7 @@ namespace pluto
                             Music.SystemSound();
                             LoadGameMenu();
                         }
+                        Game.ClearSpace();
                         return;
                     case ConsoleKey.UpArrow:
                         Music.MenuSound();
@@ -116,7 +116,7 @@ namespace pluto
             }
         }
         
-        public void SettingsMenu()
+        public static void SettingsMenu()
         {
             // SettingsMenu has additional spaces in WriteLine in order to hide previous SettingsScreen
             Console.SetCursorPosition(0, 13);
@@ -159,7 +159,7 @@ namespace pluto
             }
         }
 
-        public void QuitMenu()
+        public static void QuitMenu()
         {
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;

@@ -31,7 +31,7 @@ namespace pluto
         [DllImport("kernel32.dll", ExactSpelling = true)]
         private static extern IntPtr GetConsoleWindow();
 
-        public void SetGame()
+        public static void SetGame()
         {
             IntPtr handle = GetConsoleWindow();
             IntPtr sysMenu = GetSystemMenu(handle, false);
@@ -233,8 +233,7 @@ namespace pluto
                 {
                     case ConsoleKey.Enter:
                         Music.MenuSound();
-                        MainMenu m = new MainMenu();
-                        m.SettingsMenu();
+                        MainMenu.SettingsMenu();
                         return;
                     case ConsoleKey.DownArrow:
                         Music.MenuSound();
