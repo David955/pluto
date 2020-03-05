@@ -1,2 +1,6 @@
+sounds = 0
+introSong = 0
+resize = 0
+
 LastRoom = 7
 LastInventory = 1

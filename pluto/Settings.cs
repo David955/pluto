@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices; 
+using System.Runtime.InteropServices;
 //for wondow size and maximize lock 
 //(https://social.msdn.microsoft.com/Forums/vstudio/en-US/1aa43c6c-71b9-42d4-aa00-60058a85f0eb/c-console-window-disable-resize?forum=csharpgeneral)
 
@@ -54,7 +54,7 @@ namespace pluto
             // display logo
             Logo();
             Music.Intro();
-            
+
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("                                                            press");
             Console.ForegroundColor = ConsoleColor.White;
@@ -88,11 +88,11 @@ namespace pluto
         public void ScreenSound()
         {
             Console.ForegroundColor = ConsoleColor.White;
-                SettingsSound();
+            SettingsSound();
             Console.ForegroundColor = ConsoleColor.DarkGray;
-                SettingsIntroSong();
-                SettingsWindowSize();
-                RestOfScreen();
+            SettingsIntroSong();
+            SettingsWindowSize();
+            RestOfScreen();
 
             while (true)
             {
@@ -129,12 +129,12 @@ namespace pluto
         public void ScreenIntroSong()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
-                SettingsSound();
+            SettingsSound();
             Console.ForegroundColor = ConsoleColor.White;
-                SettingsIntroSong();
+            SettingsIntroSong();
             Console.ForegroundColor = ConsoleColor.DarkGray;
-                SettingsWindowSize();
-                RestOfScreen();
+            SettingsWindowSize();
+            RestOfScreen();
 
             while (true)
             {
@@ -171,11 +171,11 @@ namespace pluto
         public void ScreenResizeWindow()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
-                SettingsSound();
-                SettingsIntroSong();
+            SettingsSound();
+            SettingsIntroSong();
             Console.ForegroundColor = ConsoleColor.White;
-                SettingsWindowSize();
-                RestOfScreen();
+            SettingsWindowSize();
+            RestOfScreen();
 
             while (true)
             {
@@ -217,9 +217,9 @@ namespace pluto
         public void ScreenQuit()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
-                SettingsSound();
-                SettingsIntroSong();
-                SettingsWindowSize();
+            SettingsSound();
+            SettingsIntroSong();
+            SettingsWindowSize();
             Console.SetCursorPosition(0, 18);
             Console.WriteLine("                                                                                    ");
             Console.ForegroundColor = ConsoleColor.White;
@@ -260,7 +260,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 15);
             Console.Write("                                                      SOUNDS");
-            if ( sounds == true )
+            if (sounds == true)
             {
                 Console.Write("            > ON     OFF");
             }
@@ -274,7 +274,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 16);
             Console.Write("                                                      INTRO SONG");
-            if ( introSong == true )
+            if (introSong == true)
             {
                 Console.Write("        > ON     OFF");
             }

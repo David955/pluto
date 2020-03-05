@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pluto
 {
-    class Enemies
+    class Enemy
     {
         // Random Enemy 
 

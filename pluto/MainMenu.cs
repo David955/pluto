@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace pluto
 {
     class MainMenu
     {
+        public static bool gameLoaded = false;
+
         public static void NewGameMenu()
         {
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
             // this and ONLY this WriteLine needs 85 characters in order to delete previous "press ENTER to START" 
-            Console.WriteLine("                                                               version 0.1           \n\n"); 
+            Console.WriteLine("                                                               version 0.2           \n\n");
             Console.WriteLine("                                                               > NEW GAME");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 LOAD GAME");
@@ -65,7 +63,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                                               version 0.1\n\n");
+            Console.WriteLine("                                                               version 0.2\n\n");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 NEW GAME");
             Console.ForegroundColor = ConsoleColor.White;
@@ -89,8 +87,10 @@ namespace pluto
                         PreLoadGame p = new PreLoadGame();
                         if (p.CheckSaveFile() == true)
                         {
-                            // if is file present, players position is loaded from file
-                            LoadGame.LoadingSequence();
+                            // if is file present, starts loading animation
+                            LoadGame.LoadingAnimation();
+                            // turn loading of game on (variable is used in Game class)
+                            gameLoaded = true;
                         }
                         else
                         {
@@ -115,13 +115,13 @@ namespace pluto
                 }
             }
         }
-        
+
         public static void SettingsMenu()
         {
             // SettingsMenu has additional spaces in WriteLine in order to hide previous SettingsScreen
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                                               version 0.1\n");
+            Console.WriteLine("                                                               version 0.2\n");
             Console.WriteLine("                                                                                                 ");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 NEW GAME                        ");
@@ -163,7 +163,7 @@ namespace pluto
         {
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                                               version 0.1\n\n");
+            Console.WriteLine("                                                               version 0.2\n\n");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("                                                                 NEW GAME");
             Console.WriteLine("                                                                 LOAD GAME");

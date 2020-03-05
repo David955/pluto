@@ -11,8 +11,8 @@ namespace pluto
         public string name;              // name of your character
         public string currentRoom;       // location, where player is
         public string currentInventory;  // items in inventory
-        //public string mapPossiton;       // ASCII picture of space station and players location
-        //public string text;              // all previously generated text
+        public string mapPossiton;       // ASCII picture of space station and players location
+        public string text;              // all previously generated text
         public int health = 100;         // 
         public int armorValue = 0;       // 
         public int attack = 10;          // default unarmed attack

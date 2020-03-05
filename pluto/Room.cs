@@ -8,7 +8,7 @@ namespace pluto
 {
     class Room
     {
-        public string id;
+        public static string id;
 
     }
 }

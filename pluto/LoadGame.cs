@@ -55,38 +55,38 @@ namespace pluto
         // functions for settings
         public string LoadSounds()
         {
-            var saved_room = File
+            var set_sounds = File
             .ReadAllLines("../../../../save_file.txt")
             .Select(x => x.Split('='))
             .Where(x => x.Length > 1)
             .ToDictionary(x => x[0].Trim(), x => x[1]);
 
             m.Close();
-            return saved_room["sounds"];
+            return set_sounds["sounds"];
         }
 
         public string LoadIntroSong()
         {
-            var saved_room = File
+            var set_song = File
             .ReadAllLines("../../../../save_file.txt")
             .Select(x => x.Split('='))
             .Where(x => x.Length > 1)
             .ToDictionary(x => x[0].Trim(), x => x[1]);
 
             m.Close();
-            return saved_room["introSong"];
+            return set_song["introSong"];
         }
 
         public string LoadResize()
         {
-            var saved_room = File
+            var set_size = File
             .ReadAllLines("../../../../save_file.txt")
             .Select(x => x.Split('='))
             .Where(x => x.Length > 1)
             .ToDictionary(x => x[0].Trim(), x => x[1]);
 
             m.Close();
-            return saved_room["resize"];
+            return set_size["resize"];
         }
 
         // functions for ThePlayer variables

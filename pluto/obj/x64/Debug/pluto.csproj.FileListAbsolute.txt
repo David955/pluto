@@ -1,6 +1,6 @@
 C:\Users\David\source\repos\pluto\pluto\bin\x64\Debug\pluto.exe.config
 C:\Users\David\source\repos\pluto\pluto\bin\x64\Debug\pluto.exe
 C:\Users\David\source\repos\pluto\pluto\bin\x64\Debug\pluto.pdb
-C:\Users\David\source\repos\pluto\pluto\obj\x64\Debug\pluto.csprojAssemblyReference.cache
 C:\Users\David\source\repos\pluto\pluto\obj\x64\Debug\pluto.exe
 C:\Users\David\source\repos\pluto\pluto\obj\x64\Debug\pluto.pdb
+C:\Users\David\source\repos\pluto\pluto\obj\x64\Debug\pluto.csprojAssemblyReference.cache
