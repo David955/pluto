@@ -12,14 +12,16 @@ namespace pluto
         static void Main(string[] args)
         {
             // loads settings, opens title screen
-            Settings.SetGame();
+            var initialize = new Settings();
+            initialize.SetGame();
 
             // opens main menu
             MainMenu.NewGameMenu();
 
-            Game g = new Game();
+            var g = new Game();
             g.Play();
 
+            Console.ReadKey();
         }
     }
 }

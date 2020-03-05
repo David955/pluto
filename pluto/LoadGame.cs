@@ -1,10 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.IO;
+using System.Linq;
+using System.Threading;
+
+/* This class contains 1 + X functions:
+ * First one is "LoadingAnimation" which informs player when game loads sved data and when is process finished.
+ * Other X functions are for loading X values that player saved into save_file.txt (name, last possition, settings,...) 
+ * 
+ * If player chosed "LOAD GAME" option in main menu, boolean variable "gameLoaded" in MainMenu class is set to true.
+ * Finaly in Game class, function "Play" contains condition which check value of "gameLoaded" variable and if true, loads data from save_data.txt to
+ * new instance of Player class called "ThePlayer" - each value (name, inventory,...) separately with functions from this class.
+ * 
+ * 
+ * Check MainMenu.cs line 8 for variable gameLoaded
+ * Check MainMenu.cs lines 82 to 102 for complete process of loading previous game
+ * Check Game.cs line 13 for condition for loading values for current player (instance ThePlayer)
+ * 
+ * 
+ * resources: https://stackoverflow.com/questions/6768151/get-values-from-textfile-with-c-sharp
+ */
 
 namespace pluto
 {
@@ -12,13 +26,7 @@ namespace pluto
     {
         StreamReader m = new StreamReader("../../../../save_file.txt");
 
-        public static void LoadingSequence()
-        {
-            InitiateLoading();
-            FinishLoading();
-        }
-
-        public static void InitiateLoading()
+        public static void LoadingAnimation()
         {
             // loading animation
             Console.ForegroundColor = ConsoleColor.White;
@@ -29,54 +37,82 @@ namespace pluto
             WaitMan.Start();
             Thread.Sleep(2500);
             WaitMan.Stop();
-        }
 
-        public string LoadRoom()
-        {
-            // read save data from .txt file (https://stackoverflow.com/questions/6768151/get-values-from-textfile-with-c-sharp)
-            var save_data = File
-            .ReadAllLines("../../../../save_file.txt")
-            .Select(x => x.Split('='))
-            .Where(x => x.Length > 1)
-            .ToDictionary(x => x[0].Trim(), x => x[1]);
-
-            m.Close();
-            return save_data["LastRoom"];
-        }
-
-        public string LoadInventory()
-        {
-            var save_data = File
-            .ReadAllLines("../../../../save_file.txt")
-            .Select(x => x.Split('='))
-            .Where(x => x.Length > 1)
-            .ToDictionary(x => x[0].Trim(), x => x[1]);
-
-            m.Close();
-            return save_data["LastInventory"];
-        }
-
-        public static void FinishLoading()
-        {
-            // sends data from file to variables in Player class
-            LoadGame m = new LoadGame();
-            Player p = new Player();
-            p.currentRoom = m.LoadRoom();
-            p.currentInventory = m.LoadInventory();
             // after last loading operation, press enter to start loaded game
             Console.SetCursorPosition(0, 43);
             Console.Write("GAME LOADED - ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("press"); 
+            Console.Write("press");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" ENTER");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" to START");
-            // show loaded data
-            //Console.Write(p.CurrentInventory + p.CurrentRoom);
 
             Music.SystemSound();
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+        }
+
+        // functions for settings
+        public string LoadSounds()
+        {
+            var saved_room = File
+            .ReadAllLines("../../../../save_file.txt")
+            .Select(x => x.Split('='))
+            .Where(x => x.Length > 1)
+            .ToDictionary(x => x[0].Trim(), x => x[1]);
+
+            m.Close();
+            return saved_room["sounds"];
+        }
+
+        public string LoadIntroSong()
+        {
+            var saved_room = File
+            .ReadAllLines("../../../../save_file.txt")
+            .Select(x => x.Split('='))
+            .Where(x => x.Length > 1)
+            .ToDictionary(x => x[0].Trim(), x => x[1]);
+
+            m.Close();
+            return saved_room["introSong"];
+        }
+
+        public string LoadResize()
+        {
+            var saved_room = File
+            .ReadAllLines("../../../../save_file.txt")
+            .Select(x => x.Split('='))
+            .Where(x => x.Length > 1)
+            .ToDictionary(x => x[0].Trim(), x => x[1]);
+
+            m.Close();
+            return saved_room["resize"];
+        }
+
+        // functions for ThePlayer variables
+        public string LoadRoom()
+        {
+            var saved_room = File
+            .ReadAllLines("../../../../save_file.txt")
+            .Select(x => x.Split('='))
+            .Where(x => x.Length > 1)
+            .ToDictionary(x => x[0].Trim(), x => x[1]);
+
+            m.Close();
+            return saved_room["LastRoom"];
+        }
+
+        public string LoadInventory()
+        {
+            var saved_inventory = File
+            .ReadAllLines("../../../../save_file.txt")
+            .Select(x => x.Split('='))
+            .Where(x => x.Length > 1)
+            .ToDictionary(x => x[0].Trim(), x => x[1]);
+            var p = new Player();
+
+            m.Close();
+            return saved_inventory["LastInventory"];
         }
     }
 }
